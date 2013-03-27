@@ -31,6 +31,9 @@ if (!$res) die(mysql_error());
 // Connect to session
 session_start();
 
+// strip STRICT
+mysql_query("SET SESSION sql_mode='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'");
+
 // Escape all http parameters
 $esc_get = array();
 foreach ($_GET as $k => $v) {
